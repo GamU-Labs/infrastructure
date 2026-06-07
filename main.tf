@@ -73,6 +73,5 @@ resource "digitalocean_project_resources" "main" {
   project   = var.do_project_id
   resources = [
     digitalocean_droplet.app.urn,
-    digitalocean_firewall.web.urn,
   ]
 }

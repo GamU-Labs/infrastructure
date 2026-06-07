@@ -18,7 +18,7 @@ services:
       - capstone-network
 
   backend:
-    image: ${BACKEND_IMAGE:-ghcr.io/GamU-Labs/backend-service:latest}
+    image: ${BACKEND_IMAGE:-ghcr.io/gamu-labs/backend-service:latest}
     container_name: capstone-backend
     restart: unless-stopped
     expose:
@@ -33,7 +33,7 @@ services:
       - capstone-network
 
   frontend:
-    image: ${FRONTEND_IMAGE:-ghcr.io/GamU-Labs/gamu-webapp:latest}
+    image: ${FRONTEND_IMAGE:-ghcr.io/gamu-labs/gamu-webapp:latest}
     container_name: capstone-frontend
     restart: unless-stopped
     expose:
