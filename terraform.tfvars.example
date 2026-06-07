@@ -1,0 +1,7 @@
+do_token      = "dop_v1_your_token_here"
+ssh_key_name  = "your-ssh-key-name-in-do"
+region        = "sgp1"
+droplet_size  = "s-1vcpu-1gb"
+environment   = "production"
+project_name  = "capstone"
+do_project_id = ""
