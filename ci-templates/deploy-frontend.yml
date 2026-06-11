@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: gamu-labs/gamu-webapp
 
 jobs:
   build-and-deploy:
@@ -35,8 +35,7 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          build-args: VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
 
       - name: Deploy to droplet
         uses: appleboy/ssh-action@v1
