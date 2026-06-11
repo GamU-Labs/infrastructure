@@ -16,12 +16,13 @@ DEPLOY_DIR="/opt/capstone"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "Copying docker-compose, nginx configs, and env to $SSH_DEST:$DEPLOY_DIR ..."
-ssh "$SSH_DEST" "mkdir -p $DEPLOY_DIR"
+ssh "$SSH_DEST" "mkdir -p $DEPLOY_DIR/conf.d"
 rsync -az --progress \
   "$SCRIPT_DIR/docker-compose.yml" \
-  "$SCRIPT_DIR/nginx.conf" \
-  "$SCRIPT_DIR/nginx-ssl.conf" \
   "$SSH_DEST:$DEPLOY_DIR/"
+rsync -az --progress \
+  "$SCRIPT_DIR/conf.d/" \
+  "$SSH_DEST:$DEPLOY_DIR/conf.d/"
 
 if [ ! -f "$SCRIPT_DIR/backend.env" ]; then
   echo "WARNING: backend.env not found! Creating placeholder."
