@@ -3,3 +3,8 @@
 *.tfstate.backup
 *.tfvars
 !.terraform.tfvars.example
+*.env
+!*.env.example
+backend.env
+frontend.env
+deploy-private.sh
